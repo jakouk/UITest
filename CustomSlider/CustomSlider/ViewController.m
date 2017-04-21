@@ -15,6 +15,8 @@
 
 @property (strong, nonatomic) NSMutableArray *numberArray;
 
+
+
 @end
 
 @implementation ViewController
@@ -62,6 +64,26 @@
     return cell;
     
 }
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    
+    NSInteger currentIndex = self.collectionVIew.contentOffset.x / self.collectionVIew.frame.size.width;
+    
+    NSLog(@"currentIndex = %ld",currentIndex);
+    
+}
+
+- (IBAction)valueSliderBar:(UISlider *)sender {
+    
+    NSLog(@"%ld",(NSInteger)sender.value);
+    
+    
+    
+    
+}
+
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
