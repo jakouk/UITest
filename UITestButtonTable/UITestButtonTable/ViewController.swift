@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIScrollViewDelegate {
     
     @IBOutlet weak var mainScroll: UIScrollView!
     
@@ -16,10 +16,18 @@ class ViewController: UIViewController {
     var secondScroll: UIScrollView!
     var thirdScroll: UIScrollView!
     
+    @IBOutlet weak var firstButtonCheckView: UIView!
+    @IBOutlet weak var secondButtonCheckView: UIView!
+    @IBOutlet weak var thirdButtonCheckView: UIView!
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading th
+        
+        self.mainScroll.delegate = self;
+        
         
         self.mainScroll.contentSize = CGSize(width: self.view.frame.size.width * 3, height: self.mainScroll.frame.size.height)
         self.mainScroll.isPagingEnabled = true
@@ -38,7 +46,6 @@ class ViewController: UIViewController {
         self.thirdScroll.contentSize = CGSize(width: self.mainScroll.frame.size.width, height: self.mainScroll.frame.size.height * 4);
         
         
-        
         self.mainScroll.addSubview(firstScroll);
         self.mainScroll.addSubview(secondScroll);
         self.mainScroll.addSubview(thirdScroll);
@@ -53,6 +60,7 @@ class ViewController: UIViewController {
         
         let view3 = UIView(frame: CGRect(x: 0, y: 0, width: self.mainScroll.frame.size.width, height: self.mainScroll.frame.size.height * 4))
         view3.backgroundColor = UIColor.blue
+
         
         self.firstScroll.addSubview(view1)
         self.secondScroll.addSubview(view2)
@@ -66,55 +74,71 @@ class ViewController: UIViewController {
     }
     
     
-    @IBAction func touchUpInsideCalendarButton(_ sender: UIButton) {
+    @IBAction func touchUPInsideButton(_ sender: UIButton) {
         
-        print("calendar");
-        
-        if ( sender.isSelected  ) {
+        if ( sender.tag == 1 ) {
             
-            self.mainScroll.contentOffset = CGPoint(x: 0, y: 0);
+            if ( !sender.isSelected  ) {
+                
+                self.mainScroll.contentOffset = CGPoint(x: 0, y: 0);
+                self.firstButtonCheckView.backgroundColor = UIColor(red: 0.45, green: 0.91, blue: 0.90, alpha: 1.0);
+                self.secondButtonCheckView.backgroundColor = UIColor(red: 0.11, green: 0.82, blue: 0.85, alpha: 1.0);
+                self.thirdButtonCheckView.backgroundColor = UIColor(red: 0.11, green: 0.82, blue: 0.85, alpha: 1.0);
+                
+                
+            }
             
-        } else {
+        } else if ( sender.tag == 2 ) {
             
-            self.mainScroll.contentOffset = CGPoint(x: 0, y: 0);
+            if ( !sender.isSelected  ) {
+                
+                self.mainScroll.contentOffset = CGPoint(x: self.view.frame.width, y: 0);
+                self.firstButtonCheckView.backgroundColor = UIColor(red: 0.11, green: 0.82, blue: 0.85, alpha: 1.0);
+                self.secondButtonCheckView.backgroundColor = UIColor(red: 0.45, green: 0.91, blue: 0.90, alpha: 1.0);
+                self.thirdButtonCheckView.backgroundColor = UIColor(red: 0.11, green: 0.82, blue: 0.85, alpha: 1.0);
+                
+            }
+            
+        } else if ( sender.tag == 3 ) {
+            
+            if ( !sender.isSelected  ) {
+                
+                self.mainScroll.contentOffset = CGPoint(x: self.view.frame.width*2, y: 0);
+                self.firstButtonCheckView.backgroundColor = UIColor(red: 0.11, green: 0.82, blue: 0.85, alpha: 1.0);
+                self.secondButtonCheckView.backgroundColor = UIColor(red: 0.11, green: 0.82, blue: 0.85, alpha: 1.0);
+                self.thirdButtonCheckView.backgroundColor = UIColor(red: 0.45, green: 0.91, blue: 0.90, alpha: 1.0);
+                
+            }
             
         }
         
     }
     
-    @IBAction func touchUpInsideClockButton(_ sender: UIButton) {
+    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
-        print("clock");
-        
-        if ( sender.isSelected  ) {
+        if ( scrollView.contentOffset.x == 0 ) {
             
-            self.mainScroll.contentOffset = CGPoint(x: self.view.frame.width, y: 0);
+            self.firstButtonCheckView.backgroundColor = UIColor(red: 0.45, green: 0.91, blue: 0.90, alpha: 1.0);
+            self.secondButtonCheckView.backgroundColor = UIColor(red: 0.11, green: 0.82, blue: 0.85, alpha: 1.0);
+            self.thirdButtonCheckView.backgroundColor = UIColor(red: 0.11, green: 0.82, blue: 0.85, alpha: 1.0);
             
-        } else {
             
-            self.mainScroll.contentOffset = CGPoint(x: self.view.frame.width, y: 0);
+        } else if ( scrollView.contentOffset.x == self.mainScroll.frame.size.width ) {
             
-        }
-        
-    }
-
-    @IBAction func touchUpInsdieBarGraphButton(_ sender: UIButton) {
-        
-        print("bar");
-        
-        if ( sender.isSelected  ) {
+            self.firstButtonCheckView.backgroundColor = UIColor(red: 0.11, green: 0.82, blue: 0.85, alpha: 1.0);
+            self.secondButtonCheckView.backgroundColor = UIColor(red: 0.45, green: 0.91, blue: 0.90, alpha: 1.0);
+            self.thirdButtonCheckView.backgroundColor = UIColor(red: 0.11, green: 0.82, blue: 0.85, alpha: 1.0);
             
-            self.mainScroll.contentOffset = CGPoint(x: self.view.frame.width*2, y: 0);
+        } else if ( scrollView.contentOffset.x == self.mainScroll.frame.size.width * 2 ) {
             
-        } else {
-            
-            self.mainScroll.contentOffset = CGPoint(x: self.view.frame.width*2, y: 0);
+            self.firstButtonCheckView.backgroundColor = UIColor(red: 0.11, green: 0.82, blue: 0.85, alpha: 1.0);
+            self.secondButtonCheckView.backgroundColor = UIColor(red: 0.11, green: 0.82, blue: 0.85, alpha: 1.0);
+            self.thirdButtonCheckView.backgroundColor = UIColor(red: 0.45, green: 0.91, blue: 0.90, alpha: 1.0);
             
         }
         
     }
     
-
     
     
 }
