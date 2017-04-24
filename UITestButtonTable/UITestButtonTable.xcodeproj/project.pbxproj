@@ -18,6 +18,7 @@
 		BDA6E8301EA9CB53005001FF /* oneDayData.xib in Resources */ = {isa = PBXBuildFile; fileRef = BDA6E82F1EA9CB53005001FF /* oneDayData.xib */; };
 		BDA6E8321EA9CE7E005001FF /* FirstCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA6E8311EA9CE7E005001FF /* FirstCustomCell.swift */; };
 		BDA6E8341EA9D94C005001FF /* oneDayData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA6E8331EA9D94C005001FF /* oneDayData.swift */; };
+		BDC252491EAD815C00D3220C /* CustomTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC252481EAD815C00D3220C /* CustomTableCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		BDA6E82F1EA9CB53005001FF /* oneDayData.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = oneDayData.xib; sourceTree = "<group>"; };
 		BDA6E8311EA9CE7E005001FF /* FirstCustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstCustomCell.swift; sourceTree = "<group>"; };
 		BDA6E8331EA9D94C005001FF /* oneDayData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = oneDayData.swift; sourceTree = "<group>"; };
+		BDC252481EAD815C00D3220C /* CustomTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 				BDA6E8311EA9CE7E005001FF /* FirstCustomCell.swift */,
 				BDA6E8331EA9D94C005001FF /* oneDayData.swift */,
 				BDA6E82F1EA9CB53005001FF /* oneDayData.xib */,
+				BDC252481EAD815C00D3220C /* CustomTableCell.swift */,
 				BDA6E8031EA99208005001FF /* Main.storyboard */,
 				BDA6E8061EA99208005001FF /* Assets.xcassets */,
 				BDA6E8081EA99208005001FF /* LaunchScreen.storyboard */,
@@ -274,6 +277,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BDA6E8021EA99208005001FF /* ViewController.swift in Sources */,
+				BDC252491EAD815C00D3220C /* CustomTableCell.swift in Sources */,
 				BDA6E8341EA9D94C005001FF /* oneDayData.swift in Sources */,
 				BDA6E8001EA99208005001FF /* AppDelegate.swift in Sources */,
 				BDA6E8321EA9CE7E005001FF /* FirstCustomCell.swift in Sources */,
@@ -523,6 +527,7 @@
 				BDA6E8261EA99208005001FF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BDA6E8271EA99208005001FF /* Build configuration list for PBXNativeTarget "UITestButtonTableTests" */ = {
 			isa = XCConfigurationList;
@@ -531,6 +536,7 @@
 				BDA6E8291EA99208005001FF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BDA6E82A1EA99208005001FF /* Build configuration list for PBXNativeTarget "UITestButtonTableUITests" */ = {
 			isa = XCConfigurationList;
@@ -539,6 +545,7 @@
 				BDA6E82C1EA99208005001FF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

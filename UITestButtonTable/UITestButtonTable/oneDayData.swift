@@ -8,8 +8,10 @@
 
 import UIKit
 
-class oneDayData: UIView {
+class oneDayData: UITableViewCell {
 
+    @IBOutlet weak var subjectLabel: UILabel!
+    @IBOutlet weak var dataLabel: UILabel!
     /*
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
